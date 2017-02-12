@@ -42,7 +42,9 @@ public class TodoFragment extends Fragment {
 
     public void onActivityResult() {
         //меняется список(имена например)
-        adapter.notifyDataSetChanged();
+        if(adapter!= null) {
+            adapter.notifyDataSetChanged();
+        }
     }
 
     class TaskListAdapter extends ArrayAdapter<TaskData> {

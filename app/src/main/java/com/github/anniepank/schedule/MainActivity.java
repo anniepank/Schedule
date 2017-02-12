@@ -12,8 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,9 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private SectionsPagerAdapter sectionsPagerAdapter;
     public TodoFragment todoFragment = new TodoFragment();
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.container) ViewPager viewPager;
-    @BindView(R.id.tabs) TabLayout tabLayout;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.container)
+    ViewPager viewPager;
+    @BindView(R.id.tabs)
+    TabLayout tabLayout;
+    @BindView(R.id.fab_menu)
+    FloatingActionsMenu fabMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @OnClick(R.id.new_task) void onNewTask() {
+        TaskData newTask = new TaskData("New Task", "");
+        AppData.get(this).tasks.add(newTask);
+        startActivityForResult(EditTaskActivity.createIntent(this, newTask), 1);
+    }
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -81,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public TodoFragment todoFragment;
-
 
 
         public SectionsPagerAdapter(FragmentManager fm) {
