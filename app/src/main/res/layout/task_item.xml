@@ -10,5 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="name"/>
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="date" />
+
+    <TextView
+        android:id="@+id/room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="room" />
 
 </LinearLayout>

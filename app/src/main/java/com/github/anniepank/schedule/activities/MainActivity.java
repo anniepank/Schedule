@@ -1,4 +1,4 @@
-package com.github.anniepank.schedule;
+package com.github.anniepank.schedule.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.github.anniepank.schedule.AppData;
+import com.github.anniepank.schedule.R;
+import com.github.anniepank.schedule.TaskData;
+import com.github.anniepank.schedule.fragments.TodayFragment;
+import com.github.anniepank.schedule.fragments.TodoFragment;
+import com.github.anniepank.schedule.fragments.WeekFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,13 +66,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -85,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.new_task) void onNewTask() {
         TaskData newTask = new TaskData("New Task", "");
         AppData.get(this).tasks.add(newTask);
+        fabMenu.collapse();
         startActivityForResult(EditTaskActivity.createIntent(this, newTask), 1);
     }
     /**

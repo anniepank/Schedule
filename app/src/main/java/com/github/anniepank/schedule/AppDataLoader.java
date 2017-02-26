@@ -37,5 +37,6 @@ public class AppDataLoader {
         SharedPreferences prefs = context.getSharedPreferences(NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(KEY, json).apply();
+        Log.d("Settings", json);
     }
 }

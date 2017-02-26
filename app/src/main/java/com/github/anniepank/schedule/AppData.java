@@ -10,17 +10,28 @@ import java.util.LinkedList;
 
 public class AppData {
     public LinkedList<TaskData> tasks;
+    public LinkedList<SubjectData> subjects;
+    public LinkedList<ClassData> classes;
 
 
     public void save(Context context) {
         AppDataLoader.save(context, this);
     }
 
-    public TaskData getTaskById(String id) {
-
-        for (TaskData element : tasks) {
+    public <T extends BaseData> T getById(String id, Class<T> cls) {
+        LinkedList<? extends BaseData> list;
+        if(cls == TaskData.class) {
+            list = tasks;
+        } else if (cls == SubjectData.class) {
+            list = subjects;
+        } else if (cls == ClassData.class) {
+            list = classes;
+        } else {
+            throw new RuntimeException("Wrong type!");
+        }
+        for (BaseData element : list) {
             if (element.id.equals(id)) {
-                return element;
+                return cls.cast(element);
             }
         }
         return null;

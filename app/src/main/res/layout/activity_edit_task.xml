@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.github.anniepank.schedule.EditTaskActivity">
+    tools:context="com.github.anniepank.schedule.activities.EditTaskActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.github.anniepank.schedule.EditTaskActivity"
+        tools:context="com.github.anniepank.schedule.activities.EditTaskActivity"
         tools:showIn="@layout/activity_edit_task">
 
         <LinearLayout
@@ -44,15 +44,27 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <EditText
-                android:id="@+id/edit_task_name"
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="name"/>
+                tools:text="name"
+                />
             <EditText
-                android:id="@+id/edit_task_desc"
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="description"/>
+            <EditText
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="date"
+                android:focusable="false"/>
+            <EditText
+            android:id="@+id/room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="room"/>
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
