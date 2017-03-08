@@ -23,9 +23,32 @@ public class AppDataLoader {
         if (json == null) {
             AppData appData = new AppData();
             appData.tasks = new LinkedList<>();
-            appData.tasks.add(new TaskData("Task1", "Desc 1"));
-            appData.tasks.add(new TaskData("Task2", "Desc 2"));
-            appData.tasks.add(new TaskData("Task3", "Desc 3"));
+            appData.classes = new LinkedList<>();
+            appData.subjects = new LinkedList<>();
+
+            appData.classes.add(new ClassData());
+            appData.classes.add(new ClassData());
+            appData.classes.add(new ClassData());
+            appData.classes.add(new ClassData());
+
+            appData.subjects.add(new SubjectData("Progr"));
+
+            appData.classes.get(0).day = 0;
+            appData.classes.get(0).timeSlot = 0;
+            appData.classes.get(0).subjectId = appData.subjects.get(0).id;
+
+            appData.classes.get(1).day = 0;
+            appData.classes.get(1).timeSlot = 1;
+            appData.classes.get(1).subjectId = appData.subjects.get(0).id;
+
+            appData.classes.get(2).day = 1;
+            appData.classes.get(2).timeSlot = 2;
+            appData.classes.get(2).subjectId = appData.subjects.get(0).id;
+
+            appData.classes.get(3).day = 1;
+            appData.classes.get(3).timeSlot = 1;
+            appData.classes.get(3).subjectId = appData.subjects.get(0).id;
+
             return appData;
         }
 

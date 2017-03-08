@@ -10,5 +10,5 @@ public class ClassData extends BaseData{
     public int type;
     public String teacher;
     public String room;
-
+    public int day;
 }
