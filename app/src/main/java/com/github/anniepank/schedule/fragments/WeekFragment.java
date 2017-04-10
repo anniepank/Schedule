@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.github.anniepank.schedule.AppData;
 import com.github.anniepank.schedule.ClassData;
@@ -71,9 +72,16 @@ public class WeekFragment extends Fragment {
             lastClass = Math.max(lastClass, i.timeSlot);
         }
 
+        String[] dayNames = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
         for (int row = 0; row < 6; row++) {
             TableRow tableRow = new TableRow(this.getContext());
             weekItemsView.addView(tableRow);
+
+            ViewGroup dayNameView = (ViewGroup) getLayoutInflater(null).inflate(R.layout.week_day_header, tableRow, true);
+            ((TextView) dayNameView.findViewById(R.id.text)).setText(dayNames[row]);
+
+
+
             for (int slot = firstClass; slot <= lastClass; slot++) {
                 LinearLayout cell = new LinearLayout(this.getContext());
                 tableRow.addView(cell);

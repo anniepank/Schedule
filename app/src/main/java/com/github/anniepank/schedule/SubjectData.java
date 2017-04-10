@@ -12,3 +12,4 @@ public class SubjectData extends BaseData {
         this.name = name;
     }
 }
+

@@ -1,6 +1,7 @@
 package com.github.anniepank.schedule;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.LinkedList;
 

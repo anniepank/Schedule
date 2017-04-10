@@ -45,7 +45,7 @@ public class AppDataLoader {
             appData.classes.get(2).timeSlot = 2;
             appData.classes.get(2).subjectId = appData.subjects.get(0).id;
 
-            appData.classes.get(3).day = 1;
+            appData.classes.get(3).day = 3;
             appData.classes.get(3).timeSlot = 1;
             appData.classes.get(3).subjectId = appData.subjects.get(0).id;
 
