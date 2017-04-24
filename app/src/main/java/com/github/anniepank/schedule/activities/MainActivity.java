@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter sectionsPagerAdapter;
     public TodoFragment todoFragment = new TodoFragment();
+    public WeekFragment weekFragment = new WeekFragment();
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -56,7 +57,11 @@ public class MainActivity extends AppCompatActivity {
 
         sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         sectionsPagerAdapter.todoFragment = todoFragment;
+        sectionsPagerAdapter.weekFragment = weekFragment;
+
         viewPager.setAdapter(sectionsPagerAdapter);
+
+
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         todoFragment.onActivityResult();
+        weekFragment.onActivityResult();
     }
 
     @Override
@@ -104,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public TodoFragment todoFragment;
+        public WeekFragment weekFragment;
 
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -118,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return new TodayFragment();
                 case 1:
-                    return new WeekFragment();
+                    return weekFragment;
                 case 2:
                     return todoFragment;
             }

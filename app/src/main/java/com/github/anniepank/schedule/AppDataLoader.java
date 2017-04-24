@@ -32,6 +32,8 @@ public class AppDataLoader {
             appData.classes.add(new ClassData());
 
             appData.subjects.add(new SubjectData("Progr"));
+            appData.subjects.add(new SubjectData("Bio"));
+            appData.subjects.add(new SubjectData("Math"));
 
             appData.classes.get(0).day = 0;
             appData.classes.get(0).timeSlot = 0;

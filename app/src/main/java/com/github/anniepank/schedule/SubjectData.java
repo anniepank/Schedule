@@ -11,5 +11,10 @@ public class SubjectData extends BaseData {
         super();
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
 

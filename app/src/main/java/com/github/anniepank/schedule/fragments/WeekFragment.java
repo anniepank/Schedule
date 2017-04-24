@@ -17,6 +17,7 @@ import com.github.anniepank.schedule.AppData;
 import com.github.anniepank.schedule.ClassData;
 import com.github.anniepank.schedule.R;
 import com.github.anniepank.schedule.WeekItem;
+import com.github.anniepank.schedule.activities.EditClassActivity;
 
 import java.util.LinkedList;
 
@@ -34,6 +35,9 @@ public class WeekFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    public void onActivityResult() {
+        refresh();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,6 +92,15 @@ public class WeekFragment extends Fragment {
                 for (ClassData cls : classes) {
                     if (cls.timeSlot == slot && cls.day == row) {
                         WeekItem weekItem = new WeekItem(this.getContext(), cls);
+
+                        final ClassData cls2 = cls;
+                        weekItem.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                startActivityForResult(EditClassActivity.createIntent(getContext(), cls2), 1);
+                            }
+                        });
+
                         cell.addView(weekItem);
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                                 ViewGroup.LayoutParams.MATCH_PARENT,
