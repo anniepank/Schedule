@@ -26,6 +26,10 @@
             android:name=".activities.EditClassActivity"
             android:label="EditClassActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.EditSubjectActivity"
+            android:label="EditSubjectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

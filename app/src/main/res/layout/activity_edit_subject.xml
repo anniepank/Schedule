@@ -9,14 +9,14 @@
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
-    android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
-        android:layout_width="match_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
@@ -42,40 +42,15 @@
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:orientation="vertical"
-        android:layout_width="match_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Spinner
-                android:id="@+id/subject"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown" />
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/room"
-                android:hint="room"
-                tools:text="room" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/teacher"
-                android:hint="Teacher"
-                tools:text="teacher" />
-
-            <Spinner
-                android:id="@+id/day"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown" />
-
-            <Spinner
-                android:id="@+id/pair"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown" />
+                android:id="@+id/name"
+                android:hint="Name"
+                tools:text="name" />
 
         </LinearLayout>
 

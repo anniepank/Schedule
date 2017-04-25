@@ -13,7 +13,6 @@ import android.view.MenuItem;
 
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.github.anniepank.schedule.AppData;
-import com.github.anniepank.schedule.ClassData;
 import com.github.anniepank.schedule.R;
 import com.github.anniepank.schedule.TaskData;
 import com.github.anniepank.schedule.fragments.TodayFragment;
@@ -98,10 +97,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.new_class)
     void onNewClass() {
         viewPager.setCurrentItem(1, false);
-        ClassData newClass = new ClassData();
-        AppData.get(this).classes.add(newClass);
         fabMenu.collapse();
-        startActivityForResult(EditClassActivity.createIntent(this, newClass), 1);
+        startActivityForResult(EditClassActivity.createIntent(this), 1);
     }
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

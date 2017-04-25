@@ -67,7 +67,6 @@ public class EditTaskActivity extends AppCompatActivity {
         roomView.setText(taskData.room);
 
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -86,13 +85,6 @@ public class EditTaskActivity extends AppCompatActivity {
                 dateView.setText(taskData.getFormattedDate());
             }
         }, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH)).show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        //меняем реальное значение
-        save();
     }
 
     @Override
@@ -129,12 +121,9 @@ public class EditTaskActivity extends AppCompatActivity {
         }
 
         if (item.getItemId() == android.R.id.home) {
-            save();
             finish();
         }
-
         return true;
-
     }
 
     private void save() {

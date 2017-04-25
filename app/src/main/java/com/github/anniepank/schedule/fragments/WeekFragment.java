@@ -64,6 +64,10 @@ public class WeekFragment extends Fragment {
     }
 
     private void refresh() {
+        if (weekItemsView == null) {
+            return;
+        }
+
         weekItemsView.removeAllViews();
 
         LinkedList<ClassData> classes = AppData.get(this.getContext()).classes;
@@ -88,6 +92,7 @@ public class WeekFragment extends Fragment {
 
             for (int slot = firstClass; slot <= lastClass; slot++) {
                 LinearLayout cell = new LinearLayout(this.getContext());
+                cell.setOrientation(LinearLayout.VERTICAL);
                 tableRow.addView(cell);
                 for (ClassData cls : classes) {
                     if (cls.timeSlot == slot && cls.day == row) {
